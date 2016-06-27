@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoreTweet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static CoreTweet.OAuth;
 
 namespace TwitterDTApplication1
 {
@@ -24,5 +26,29 @@ namespace TwitterDTApplication1
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var your_consumer_key = "";
+            var your_consumer_secret = "";
+
+            Session = OAuth.Authorize(your_consumer_key, your_consumer_secret);
+
+            System.Diagnostics.Process.Start(Session.AuthorizeUri.AbsoluteUri);
+
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var pin = Pin.Text;
+
+            Tokens = OAuth.GetTokens(Session, pin);
+
+            Tokens.Statuses.Update(status => "hello");
+        }
+
+        OAuthSession Session { get; set; }
+        Tokens Tokens { get; set; }
+
     }
 }

@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="button" Content="認証" HorizontalAlignment="Left" Margin="442,4,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.189,0.493" Click="button_Click"/>
+        <Button x:Name="button1" Content="Tweet" HorizontalAlignment="Left" Margin="442,299,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <TextBox x:Name="Pin" HorizontalAlignment="Left" Height="23" Margin="0,1,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="437"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="265" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="507"/>
+
     </Grid>
 </Window>
